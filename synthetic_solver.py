@@ -85,9 +85,9 @@ def theta_generic(
         theta_a_fix_a = theta_list[i]
         rate_a_fix_a = rate_a_each_theta[i]
         # find theta_b w/ closest rate
-        rate_diff_squared_fix_a = np.abs(rate_a_fix_a - rate_b_each_theta)
-        if np.min(rate_diff_squared_fix_a) <= diff_bound:
-            theta_b_fix_a = theta_list[np.argmin(rate_diff_squared_fix_a)]
+        rate_diff_abs_fix_a = np.abs(rate_a_fix_a - rate_b_each_theta)
+        if np.min(rate_diff_abs_fix_a) <= diff_bound:
+            theta_b_fix_a = theta_list[np.argmin(rate_diff_abs_fix_a)]
             # compute util
             util_a_fix_a, util_b_fix_a = get_util(
                 theta_a_fix_a, theta_b_fix_a, 
@@ -101,9 +101,9 @@ def theta_generic(
         theta_b_fix_b = theta_list[i]
         rate_b_fix_b = rate_b_each_theta[i]
         # find theta_a w/ closest rate
-        rate_diff_squared_fix_b = np.abs(rate_b_fix_b - rate_a_each_theta)
-        if np.min(rate_diff_squared_fix_b) <= diff_bound:
-            theta_a_fix_b = theta_list[np.argmin(rate_diff_squared_fix_b)]
+        rate_diff_abs_fix_b = np.abs(rate_b_fix_b - rate_a_each_theta)
+        if np.min(rate_diff_abs_fix_b) <= diff_bound:
+            theta_a_fix_b = theta_list[np.argmin(rate_diff_abs_fix_b)]
             util_a_fix_b, util_b_fix_b = get_util(
                 theta_a_fix_b, theta_b_fix_b, 
                 X_a_0, X_a_1, 
@@ -116,14 +116,14 @@ def theta_generic(
         theta_a_ind = np.argmax(util_total_fix_a)
         rate_a = rate_a_each_theta[theta_a_ind]
         # find theta_b w/ closest rate
-        rate_diff_squared = np.abs(rate_a - rate_b_each_theta)
-        theta_b_ind = np.argmin(rate_diff_squared)
+        rate_diff_abs = np.abs(rate_a - rate_b_each_theta)
+        theta_b_ind = np.argmin(rate_diff_abs)
     else:
         theta_b_ind = np.argmax(util_total_fix_b)
         rate_b = rate_b_each_theta[theta_b_ind]
         # find theta_a w/ closest rate
-        rate_diff_squared = np.abs(rate_b - rate_a_each_theta)
-        theta_a_ind = np.argmin(rate_diff_squared)
+        rate_diff_abs = np.abs(rate_b - rate_a_each_theta)
+        theta_a_ind = np.argmin(rate_diff_abs)
     return theta_list[theta_a_ind], theta_list[theta_b_ind]
 
 
@@ -145,11 +145,11 @@ def theta_EO(
         TPR_a_fix_a = TPR_a_each_theta[i]
         FPR_a_fix_a = FPR_a_each_theta[i]
         # find theta_b w/ smallest EO difference
-        TPR_diff_squared_fix_a = np.abs(TPR_a_fix_a - TPR_b_each_theta)
-        FPR_diff_squared_fix_a = np.abs(FPR_a_fix_a - FPR_b_each_theta)
-        EO_diff_squared_fix_a = np.maximum(TPR_diff_squared_fix_a, FPR_diff_squared_fix_a)
-        if np.min(EO_diff_squared_fix_a) <= diff_bound:
-            theta_b_fix_a = theta_list[np.argmin(EO_diff_squared_fix_a)]
+        TPR_diff_abs_fix_a = np.abs(TPR_a_fix_a - TPR_b_each_theta)
+        FPR_diff_abs_fix_a = np.abs(FPR_a_fix_a - FPR_b_each_theta)
+        EO_diff_abs_fix_a = np.maximum(TPR_diff_abs_fix_a, FPR_diff_abs_fix_a)
+        if np.min(EO_diff_abs_fix_a) <= diff_bound:
+            theta_b_fix_a = theta_list[np.argmin(EO_diff_abs_fix_a)]
             # compute util
             util_a_fix_a, util_b_fix_a = get_util(
                 theta_a_fix_a, theta_b_fix_a, 
@@ -164,11 +164,11 @@ def theta_EO(
         TPR_b_fix_b = TPR_b_each_theta[i]
         FPR_b_fix_b = FPR_b_each_theta[i]
         # find theta_a w/ smallest EO difference
-        TPR_diff_squared_fix_b = np.abs(TPR_b_fix_b - TPR_a_each_theta)
-        FPR_diff_squared_fix_b = np.abs(FPR_b_fix_b - FPR_a_each_theta)
-        EO_diff_squared_fix_b = np.maximum(TPR_diff_squared_fix_b, FPR_diff_squared_fix_b)
-        if np.min(EO_diff_squared_fix_b) <= diff_bound:
-            theta_a_fix_b = theta_list[np.argmin(EO_diff_squared_fix_b)]
+        TPR_diff_abs_fix_b = np.abs(TPR_b_fix_b - TPR_a_each_theta)
+        FPR_diff_abs_fix_b = np.abs(FPR_b_fix_b - FPR_a_each_theta)
+        EO_diff_abs_fix_b = np.maximum(TPR_diff_abs_fix_b, FPR_diff_abs_fix_b)
+        if np.min(EO_diff_abs_fix_b) <= diff_bound:
+            theta_a_fix_b = theta_list[np.argmin(EO_diff_abs_fix_b)]
             util_a_fix_b, util_b_fix_b = get_util(
                 theta_a_fix_b, theta_b_fix_b, 
                 X_a_0, X_a_1, 
@@ -182,17 +182,17 @@ def theta_EO(
         TPR_a = TPR_a_each_theta[theta_a_ind]
         FPR_a = FPR_a_each_theta[theta_a_ind]
         # find theta_b w/ closest rate
-        TPR_diff_squared = np.abs(TPR_a - TPR_b_each_theta)
-        FPR_diff_squared = np.abs(FPR_a - FPR_b_each_theta)
-        EO_diff_squared = np.maximum(TPR_diff_squared, FPR_diff_squared)
-        theta_b_ind = np.argmin(EO_diff_squared)
+        TPR_diff_abs = np.abs(TPR_a - TPR_b_each_theta)
+        FPR_diff_abs = np.abs(FPR_a - FPR_b_each_theta)
+        EO_diff_abs = np.maximum(TPR_diff_abs, FPR_diff_abs)
+        theta_b_ind = np.argmin(EO_diff_abs)
     else:
         theta_b_ind = np.argmax(util_total_fix_b_EO)
         TPR_b = TPR_b_each_theta[theta_b_ind]
         FPR_b = FPR_b_each_theta[theta_b_ind]
         # find theta_a w/ closest rate
-        TPR_diff_squared = np.abs(TPR_b - TPR_a_each_theta)
-        FPR_diff_squared = np.abs(FPR_b - FPR_a_each_theta)
-        EO_diff_squared = np.maximum(TPR_diff_squared, FPR_diff_squared)
-        theta_a_ind = np.argmin(EO_diff_squared)
+        TPR_diff_abs = np.abs(TPR_b - TPR_a_each_theta)
+        FPR_diff_abs = np.abs(FPR_b - FPR_a_each_theta)
+        EO_diff_abs = np.maximum(TPR_diff_abs, FPR_diff_abs)
+        theta_a_ind = np.argmin(EO_diff_abs)
     return theta_list[theta_a_ind], theta_list[theta_b_ind]
