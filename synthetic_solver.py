@@ -1,16 +1,6 @@
 import numpy as np
 
 
-def p_guassian(mu, sigma, x):
-    return np.math.exp(-(x-mu)**2 / (2*sigma**2)) / (np.math.sqrt(2 * np.math.pi * sigma**2))
-
-
-def gamma(x, alpha, mu_0, sigma_0, mu_1, sigma_1):
-    G_0_x = p_guassian(mu_0, sigma_0, x)
-    G_1_x = p_guassian(mu_1, sigma_1, x)
-    return 1 / (G_0_x / G_1_x * (1/alpha - 1) + 1)
-
-
 def store_res(
         ind, theta_a_list, theta_b_list, 
         util_a_list, util_b_list, util_total_list, 
