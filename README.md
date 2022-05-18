@@ -36,108 +36,108 @@ Code for generating main plots in the paper is included in [notebooks](notebooks
 
 ### Adult - flip qualified female
 
-``
+```
 adult_german_runner.py --d adult --c DP --m dp --f 1 --n 10
-``
+```
 
-``
+```
 adult_german_runner.py --d adult --c TPR --m tpr --f 1 --n 10
-``
+```
 
-``
+```
 adult_german_runner.py --d adult --c FPR --m fpr --f 1 --n 10
-``
+```
 
-``
+```
 adult_german_runner.py --d adult --c EO --m eo --f 1 --n 10
-``
+```
 
 ### Adult - flip unqualified male
 
-``
+```
 adult_german_runner.py --d adult --c DP --m dp --f 2 --n 10
-``
+```
 
-``
+```
 adult_german_runner.py --d adult --c TPR --m tpr --f 2 --n 10
-``
+```
 
-``
+```
 adult_german_runner.py --d adult --c FPR --m fpr --f 2 --n 10
-``
+```
 
-``
+```
 adult_german_runner.py --d adult --c EO --m eo --f 2 --n 10
-``
+```
 
 ### Adult - flip both
 
-``
+```
 adult_german_runner.py --d adult --c DP --m dp --f 3 --n 10
-``
+```
 
-``
+```
 adult_german_runner.py --d adult --c TPR --m tpr --f 3 --n 10
-``
+```
 
-``
+```
 adult_german_runner.py --d adult --c FPR --m fpr --f 3 --n 10
-``
+```
 
-``
+```
 adult_german_runner.py --d adult --c EO --m eo --f 3 --n 10
-``
+```
 
 ### German - flip qualified age below 30
 
-``
+```
 adult_german_runner.py --d german --c DP --m dp --f 1 --n 30
-``
+```
 
-``
+```
 adult_german_runner.py --d german --c TPR --m tpr --f 1 --n 30
-``
+```
 
-``
+```
 adult_german_runner.py --d german --c FPR --m fpr --f 1 --n 30
-``
+```
 
-``
+```
 adult_german_runner.py --d german --c EO --m eo --f 1 --n 30
-``
+```
 
 ### German - flip unqualified age above 30
 
-``
+```
 adult_german_runner.py --d german --c DP --m dp --f 2 --n 30
-``
+```
 
-``
+```
 adult_german_runner.py --d german --c TPR --m tpr --f 2 --n 30
-``
+```
 
-``
+```
 adult_german_runner.py --d german --c FPR --m fpr --f 2 --n 30
-``
+```
 
-``
+```
 adult_german_runner.py --d german --c EO --m eo --f 2 --n 30
-``
+```
 
 ### German - flip both
 
-``
+```
 adult_german_runner.py --d german --c DP --m dp --f 3 --n 30
-``
+```
 
-``
+```
 adult_german_runner.py --d german --c TPR --m tpr --f 3 --n 30
-``
+```
 
-``
+```
 adult_german_runner.py --d german --c FPR --m fpr --f 3 --n 30
-``
+```
 
-``
+```
 adult_german_runner.py --d german --c EO --m eo --f 3 --n 30
-``
+```
