@@ -1,6 +1,6 @@
 # Social Bias Meets Data Bias
 
-This is the code release for *Social Bias Meets Data Bias: The Impacts of Labeling and Measurement Errors on Fairness Criteria*.
+This is the code release for [*Social Bias Meets Data Bias: The Impacts of Labeling and Measurement Errors on Fairness Criteria*](https://arxiv.org/abs/2206.00137) by Yiqiao Liao and [Parinaz Naghizadeh](https://parinazn.com/).
 
 ## Requirements
 
